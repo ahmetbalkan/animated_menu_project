@@ -6,6 +6,4 @@ Dribble sitesinde bulunan bir tasarımın flutter ile yazılmış versiyonudur.
 
 ## Ekran Görüntüleri
 
-[![name](http://ahmetbalkan.com.tr/app/111.jpg)]()
-[![name](http://ahmetbalkan.com.tr/app/222.jpg)]()
 ![22](https://user-images.githubusercontent.com/48199986/178214366-82f3e2b6-6261-4a50-97d0-5226e9166e03.gif)
