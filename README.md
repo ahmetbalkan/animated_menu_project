@@ -6,8 +6,8 @@ Dribble sitesinde bulunan bir tasarımın flutter ile yazılmış versiyonudur.
 
 ## Ekran Görüntüleri
 
-[![name](http://ahmetbalkan.com.tr/app/1.jpg)](https://www.instagram.com/balkan.exe/)
-[![name](http://ahmetbalkan.com.tr/app/2.jpg)](https://twitter.com/)
-[![name](http://ahmetbalkan.com.tr/app/3.jpg)](https://www.linkedin.com/in/ahmet-refik-balkan-8a7ba5164/)
+[![name](http://ahmetbalkan.com.tr/app/1.jpg)]()
+[![name](http://ahmetbalkan.com.tr/app/2.jpg)]()
+[![name](http://ahmetbalkan.com.tr/app/3.jpg)]()
 
 
