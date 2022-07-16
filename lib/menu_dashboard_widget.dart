@@ -20,9 +20,13 @@ class _MenuDashboardState extends State<MenuDashboard>
   late Animation<double> _scaleMenuAnimation;
   late Animation<Offset> _menuOffsetAnimation;
   final Duration _duration = const Duration(milliseconds: 300);
+  double yuzde = 1.0446;
+  double anasayi = 100;
+  double ikincisayi = 0;
+  double gunluk = 0;
 
   @override
-  void initState() {
+  void initState() { 
     super.initState();
     _controller = AnimationController(vsync: this, duration: _duration);
     _scaleAnimation = Tween(begin: 1.0, end: 0.85).animate(_controller);
@@ -201,7 +205,21 @@ class _MenuDashboardState extends State<MenuDashboard>
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    for (var i = 0; i < 90; i++) {
+                      ikincisayi = anasayi * yuzde;
+                      yuzde = (ikincisayi - anasayi) / anasayi;
+                      yuzde++;
+                      ikincisayi = anasayi * yuzde;
+                      gunluk = ikincisayi - anasayi;
+                      anasayi = anasayi + (ikincisayi - anasayi);
+
+                      //print("toplam kazanç:" + anasayi.toString());
+                      print("$i günlük:" +
+                          gunluk.toString() +
+                          "total kazanç :  $anasayi");
+                    }
+                  },
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     child: Row(
@@ -284,129 +302,134 @@ class _MenuDashboardState extends State<MenuDashboard>
                     child: PageView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.blue.shade200, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          margin: const EdgeInsets.all(8),
-                          color: Colors.blueAccent,
-                          elevation: 5,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 30.0, right: 30.0, top: 10.0),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.only(top: 15.0),
-                                          child: Text(
-                                            "Current Balance",
-                                            style: TextStyle(
-                                                color: Colors.white38,
-                                                fontSize: 10),
-                                          ),
-                                        ),
-                                        Image.asset("assets/tankbank.png"),
-                                      ],
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: const [
-                                        Text(
-                                          "\$12.432.32",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18),
-                                        ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 15.0),
-                                      child: Row(
-                                        children: const [
-                                          Text(
-                                            "**** **** **** 1505",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 22),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 12.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
+                        InkWell(
+                          onTap: () {},
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                  color: Colors.blue.shade200, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            margin: const EdgeInsets.all(8),
+                            color: Colors.blueAccent,
+                            elevation: 5,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 30.0, right: 30.0, top: 10.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text("Card Holder",
-                                                  style: TextStyle(
-                                                      color: Colors.white54,
-                                                      fontSize: 8)),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 10.0),
-                                                child: Text("Ahmet BALKAN",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        color: Colors.white,
-                                                        fontSize: 15)),
-                                              ),
-                                            ],
+                                          const Padding(
+                                            padding: EdgeInsets.only(top: 15.0),
+                                            child: Text(
+                                              "Current Balance",
+                                              style: TextStyle(
+                                                  color: Colors.white38,
+                                                  fontSize: 10),
+                                            ),
                                           ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text("Expires",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                      color: Colors.white54,
-                                                      fontSize: 8)),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 10.0),
-                                                child: Text("05/20",
+                                          Image.asset("assets/tankbank.png"),
+                                        ],
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: const [
+                                          Text(
+                                            "\$12.432.32",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 15.0),
+                                        child: Row(
+                                          children: const [
+                                            Text(
+                                              "**** **** **** 1505",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 22),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 12.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: const [
+                                                Text("Card Holder",
+                                                    style: TextStyle(
+                                                        color: Colors.white54,
+                                                        fontSize: 8)),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 10.0),
+                                                  child: Text("Ahmet BALKAN",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.white,
+                                                          fontSize: 15)),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: const [
+                                                Text("Expires",
                                                     style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w800,
-                                                        color: Colors.white,
-                                                        fontSize: 15)),
-                                              ),
-                                            ],
-                                          ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 10.0),
-                                              child: Image.asset(
-                                                  "assets/mastercard.png")),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                                        color: Colors.white54,
+                                                        fontSize: 8)),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 10.0),
+                                                  child: Text("05/20",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          color: Colors.white,
+                                                          fontSize: 15)),
+                                                ),
+                                              ],
+                                            ),
+                                            Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 10.0),
+                                                child: Image.asset(
+                                                    "assets/mastercard.png")),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Card(
@@ -640,40 +663,42 @@ class _MenuDashboardState extends State<MenuDashboard>
                         shrinkWrap: true,
                         itemBuilder: ((context, index) {
                           return InkWell(
-                            onTap: () {},
-                            child: Card(
-                              color: Colors.white,
-                              child: ListTile(
-                                leading: const Icon(
-                                  Icons.apple,
-                                  color: Colors.black,
-                                ),
-                                title: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Macbook Pro 15' $index",
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 12),
-                                    ),
-                                    const Text("Apple",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 10,
-                                            color: Colors.black54))
-                                  ],
-                                ),
-                                trailing: Text("-2499\$",
+                              onTap: () {},
+                              child: Card(
+                                color: Colors.white,
+                                child: ListTile(
+                                  leading: const Icon(
+                                    Icons.apple,
+                                    color: Colors.black,
+                                  ),
+                                  title: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Macbook Pro 15' $index",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 12),
+                                      ),
+                                      const Text("Apple",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10,
+                                              color: Colors.black54))
+                                    ],
+                                  ),
+                                  trailing: Text(
+                                    "-2499\$",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12,
                                         color: index % 2 == 0
                                             ? Colors.green
-                                            : Colors.red)),
-                              ),
-                            ),
-                          );
+                                            : Colors.redAccent),
+                                  ),
+                                ),
+                              ));
                         }),
                         itemCount: 3),
                   )
